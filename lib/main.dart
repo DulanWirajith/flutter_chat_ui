@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -59,7 +60,13 @@ class _MyHomePageState extends State<MyHomePage> {
               elements: messages,
               groupBy: (message) => DateTime(
                   message.date.year, message.date.month, message.date.day),
-              groupHeaderBuilder: (Message message) => SizedBox(),
+              groupHeaderBuilder: (Message message) => SizedBox(
+                height: 40,
+                child: Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Text(DateFormat.yMMMd().format(message.date)),
+                ),
+              ),
               itemBuilder: (context, Message message) => Align(
                 alignment: message.isSentByMe
                     ? Alignment.centerRight
