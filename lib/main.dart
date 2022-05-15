@@ -58,6 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
             child: GroupedListView<Message, DateTime>(
               padding: const EdgeInsets.all(8),
               elements: messages,
+              reverse: true,
+              order: GroupedListOrder.DESC,
               groupBy: (message) => DateTime(
                   message.date.year, message.date.month, message.date.day),
               groupHeaderBuilder: (Message message) => SizedBox(
