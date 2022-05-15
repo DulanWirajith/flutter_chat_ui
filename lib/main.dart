@@ -171,7 +171,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       ? Alignment.centerRight
                       : Alignment.centerLeft,
                   child: Container(
-                    // padding: EdgeInsets.all(14),
+                    margin: const EdgeInsets.only(
+                        left: 20.0, right: 20.0, bottom: 10),
                     decoration: message.isSentByMe
                         ? BoxDecoration(
                             color: Colors.blueAccent.shade100,
