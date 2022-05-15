@@ -167,8 +167,25 @@ class _MyHomePageState extends State<MyHomePage> {
                 alignment: message.isSentByMe
                     ? Alignment.centerRight
                     : Alignment.centerLeft,
-                child: Card(
-                  elevation: 8,
+                child: Container(
+                  // padding: EdgeInsets.all(14),
+                  decoration: message.isSentByMe
+                      ? BoxDecoration(
+                          color: Colors.blueAccent.shade100,
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(18),
+                            bottomLeft: Radius.circular(18),
+                            bottomRight: Radius.circular(18),
+                          ),
+                        )
+                      : BoxDecoration(
+                          color: Colors.blueGrey.shade50,
+                          borderRadius: const BorderRadius.only(
+                            topRight: Radius.circular(18),
+                            bottomLeft: Radius.circular(18),
+                            bottomRight: Radius.circular(18),
+                          ),
+                        ),
                   child: Padding(
                     padding: const EdgeInsets.all(12),
                     child: Text(message.text),
