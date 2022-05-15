@@ -59,11 +59,16 @@ class _MyHomePageState extends State<MyHomePage> {
               elements: messages,
               groupBy: (message) => DateTime(2022),
               groupHeaderBuilder: (Message message) => SizedBox(),
-              itemBuilder: (context, Message message) => Card(
-                elevation: 8,
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Text(message.text),
+              itemBuilder: (context, Message message) => Align(
+                alignment: message.isSentByMe
+                    ? Alignment.centerRight
+                    : Alignment.centerLeft,
+                child: Card(
+                  elevation: 8,
+                  child: Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Text(message.text),
+                  ),
                 ),
               ),
             ),
