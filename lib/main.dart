@@ -34,101 +34,103 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Message> messages = [
     Message(
         text: "hey",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: false),
     Message(
         text: "hey2",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: true),
     Message(
         text: "hey3",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: false),
     Message(
         text: "hey",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: false),
     Message(
         text: "hey2",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: true),
     Message(
         text: "hey3",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: false),
     Message(
         text: "hey",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: false),
     Message(
         text: "hey2",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: true),
     Message(
         text: "hey3",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: false),
     Message(
         text: "hey",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: false),
     Message(
         text: "hey2",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: true),
     Message(
         text: "hey3",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: false),
     Message(
         text: "hey",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: false),
     Message(
         text: "hey2",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: true),
     Message(
         text: "hey3",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: false),
     Message(
         text: "hey",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: false),
     Message(
         text: "hey2",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: true),
     Message(
         text: "hey3",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: false),
     Message(
         text: "hey",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: false),
     Message(
         text: "hey2",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: true),
     Message(
         text: "hey3",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: false),
     Message(
         text: "hey",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: false),
     Message(
         text: "hey2",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: true),
     Message(
         text: "hey3",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(const Duration(minutes: 1)),
         isSentByMe: false)
   ];
+
+  final _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -136,79 +138,109 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: GroupedListView<Message, DateTime>(
-              padding: const EdgeInsets.all(8),
-              elements: messages,
-              reverse: true,
-              order: GroupedListOrder.DESC,
-              useStickyGroupSeparators: true,
-              floatingHeader: true,
-              groupBy: (message) => DateTime(
-                  message.date.year, message.date.month, message.date.day),
-              groupHeaderBuilder: (Message message) => SizedBox(
-                height: 40,
-                child: Center(
-                  child: Card(
-                    color: Theme.of(context).primaryColor,
-                    child: Padding(
-                      padding: EdgeInsets.all(8),
-                      child: Text(
-                        DateFormat.yMMMd().format(message.date),
-                        style: const TextStyle(color: Colors.white),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: GroupedListView<Message, DateTime>(
+                padding: const EdgeInsets.all(8),
+                elements: messages,
+                reverse: true,
+                order: GroupedListOrder.DESC,
+                useStickyGroupSeparators: true,
+                floatingHeader: true,
+                groupBy: (message) => DateTime(
+                    message.date.year, message.date.month, message.date.day),
+                groupHeaderBuilder: (Message message) => SizedBox(
+                  height: 40,
+                  child: Center(
+                    child: Card(
+                      color: Theme.of(context).primaryColor,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: Text(
+                          DateFormat.yMMMd().format(message.date),
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              itemBuilder: (context, Message message) => Align(
-                alignment: message.isSentByMe
-                    ? Alignment.centerRight
-                    : Alignment.centerLeft,
-                child: Container(
-                  // padding: EdgeInsets.all(14),
-                  decoration: message.isSentByMe
-                      ? BoxDecoration(
-                          color: Colors.blueAccent.shade100,
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(18),
-                            bottomLeft: Radius.circular(18),
-                            bottomRight: Radius.circular(18),
+                itemBuilder: (context, Message message) => Align(
+                  alignment: message.isSentByMe
+                      ? Alignment.centerRight
+                      : Alignment.centerLeft,
+                  child: Container(
+                    // padding: EdgeInsets.all(14),
+                    decoration: message.isSentByMe
+                        ? BoxDecoration(
+                            color: Colors.blueAccent.shade100,
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(18),
+                              bottomLeft: Radius.circular(18),
+                              bottomRight: Radius.circular(18),
+                            ),
+                          )
+                        : BoxDecoration(
+                            color: Colors.blueGrey.shade50,
+                            borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(18),
+                              bottomLeft: Radius.circular(18),
+                              bottomRight: Radius.circular(18),
+                            ),
                           ),
-                        )
-                      : BoxDecoration(
-                          color: Colors.blueGrey.shade50,
-                          borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(18),
-                            bottomLeft: Radius.circular(18),
-                            bottomRight: Radius.circular(18),
-                          ),
-                        ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Text(message.text),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: Text(message.text),
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-          TextField(
-            decoration: const InputDecoration(
-              contentPadding: EdgeInsets.all(12),
-              hintText: 'type your message here',
-            ),
-            autocorrect: false,
-            onSubmitted: (text) {
-              final message =
-                  Message(text: text, date: DateTime.now(), isSentByMe: true);
-              setState(() {
-                messages.add(message);
-              });
-            },
-          )
-        ],
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: const Offset(0, 3), // changes position of shadow
+                  ),
+                ],
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: TextField(
+                controller: _controller,
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.all(12),
+                  hintText: 'type your message here',
+                  suffixIcon: IconButton(
+                    icon: const Icon(Icons.send),
+                    onPressed: () {
+                      final message = Message(
+                          text: _controller.value.text.toString(),
+                          date: DateTime.now(),
+                          isSentByMe: true);
+                      _controller.clear();
+                      setState(() {
+                        messages.add(message);
+                      });
+                    },
+                  ),
+                ),
+                autocorrect: false,
+                onSubmitted: (text) {
+                  final message = Message(
+                      text: text, date: DateTime.now(), isSentByMe: true);
+                  setState(() {
+                    messages.add(message);
+                  });
+                },
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
