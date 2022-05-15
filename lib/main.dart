@@ -177,10 +177,19 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          const TextField(
-            decoration: InputDecoration(
-                contentPadding: EdgeInsets.all(12),
-                hintText: 'type your message here'),
+          TextField(
+            decoration: const InputDecoration(
+              contentPadding: EdgeInsets.all(12),
+              hintText: 'type your message here',
+            ),
+            autocorrect: false,
+            onSubmitted: (text) {
+              final message =
+                  Message(text: text, date: DateTime.now(), isSentByMe: true);
+              setState(() {
+                messages.add(message);
+              });
+            },
           )
         ],
       ),
