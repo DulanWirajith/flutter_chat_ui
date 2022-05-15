@@ -62,9 +62,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   message.date.year, message.date.month, message.date.day),
               groupHeaderBuilder: (Message message) => SizedBox(
                 height: 40,
-                child: Padding(
-                  padding: EdgeInsets.all(8),
-                  child: Text(DateFormat.yMMMd().format(message.date)),
+                child: Center(
+                  child: Card(
+                    color: Theme.of(context).primaryColor,
+                    child: Padding(
+                      padding: EdgeInsets.all(8),
+                      child: Text(
+                        DateFormat.yMMMd().format(message.date),
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
                 ),
               ),
               itemBuilder: (context, Message message) => Align(
