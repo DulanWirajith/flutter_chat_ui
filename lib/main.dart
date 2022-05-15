@@ -55,7 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
     Message(
         text: "hey3",
         date: DateTime.now().subtract(Duration(minutes: 1)),
-        isSentByMe: false),Message(
+        isSentByMe: false),
+    Message(
         text: "hey",
         date: DateTime.now().subtract(Duration(minutes: 1)),
         isSentByMe: false),
@@ -66,7 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
     Message(
         text: "hey3",
         date: DateTime.now().subtract(Duration(minutes: 1)),
-        isSentByMe: false),Message(
+        isSentByMe: false),
+    Message(
         text: "hey",
         date: DateTime.now().subtract(Duration(minutes: 1)),
         isSentByMe: false),
@@ -77,7 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
     Message(
         text: "hey3",
         date: DateTime.now().subtract(Duration(minutes: 1)),
-        isSentByMe: false),Message(
+        isSentByMe: false),
+    Message(
         text: "hey",
         date: DateTime.now().subtract(Duration(minutes: 1)),
         isSentByMe: false),
