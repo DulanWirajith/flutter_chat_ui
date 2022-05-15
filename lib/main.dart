@@ -141,6 +141,8 @@ class _MyHomePageState extends State<MyHomePage> {
               elements: messages,
               reverse: true,
               order: GroupedListOrder.DESC,
+              useStickyGroupSeparators: true,
+              floatingHeader: true,
               groupBy: (message) => DateTime(
                   message.date.year, message.date.month, message.date.day),
               groupHeaderBuilder: (Message message) => SizedBox(
