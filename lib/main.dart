@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grouped_list/grouped_list.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,7 +53,21 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
-          Expanded(child: Container()),
+          Expanded(
+            child: GroupedListView<Message, DateTime>(
+              padding: const EdgeInsets.all(8),
+              elements: messages,
+              groupBy: (message) => DateTime(2022),
+              groupHeaderBuilder: (Message message) => SizedBox(),
+              itemBuilder: (context, Message message) => Card(
+                elevation: 8,
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Text(message.text),
+                ),
+              ),
+            ),
+          ),
           const TextField(
             decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(12),
